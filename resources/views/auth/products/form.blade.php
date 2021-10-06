@@ -1,9 +1,9 @@
 @extends('auth.layouts.master')
 
-@isset($category)
-    @section('title', 'Редактировать категорию ' . $category->name)
+@isset($product)
+    @section('title', 'Редактировать товар ' . $product->name)
 @else
-    @section('title', 'Создать категорию')
+    @section('title', 'Создать товар')
 @endisset
 
 

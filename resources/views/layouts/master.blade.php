@@ -4,25 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title')</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <script type="text/javascript"
-            src="/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=PniqewEmOv_VhWd4F6XRsVI8cEtE3zRetX_ArZoqrSkL9GCPsSUaoVRwLRr-Lo2M"
-            charset="UTF-8"></script>
-    <link rel="stylesheet" crossorigin="anonymous"
-          href="/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL2ludGVybmV0LXNob3AudG13ZWIucnUv"/>
-    <script src="/js/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/starter-template.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ route('index')}}">Интернет Магазин</a>
+            <a class="navbar-brand" href="{{ route('index')}}">Online Shop</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">

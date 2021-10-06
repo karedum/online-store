@@ -23,19 +23,15 @@
                                 {{ $product->name }}
                             </a>
                         </td>
-                        <td><span class="badge">{{ $product->pivot->count }}</span>
+                        <td><span class="badge-{{$product->code}}">{{ $product->pivot->count }}</span>
                             <div class="btn-group form-inline">
-                                <form action="{{ route('basket-remove', $product) }}" method="POST">
-                                    <button type="submit" class="btn btn-danger" href=""><span
+                                    <button class="btn btn-danger" href=""><span
                                             class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
-                                    @csrf
-                                </form>
-                                <form action="{{ route('basket-add', $product) }}" method="POST">
-                                    <button type="submit" class="btn btn-success"
+
+                                    <button class="btn btn-success"
                                             href=""><span
                                             class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                                    @csrf
-                                </form>
+
                             </div>
                         </td>
                         <td>{{ $product->price }} ₽</td>
@@ -54,4 +50,30 @@
                     заказ</a>
             </div>
         </div>
+        <script type="text/javascript">
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('.btn-success').on('click', function() {
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('basket-add', $product)}}",
+                    success: function (data) {
+                        $('.badge-{{$product->code}}').text(parseInt($('.badge-{{$product->code}}').text()) + 1);
+                    }
+                });
+            });
+            $('.btn-danger').on('click', function() {
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('basket-remove', $product)}}",
+                    success: function (data) {
+                        $('.badge-{{$product->code}}').text(parseInt($('.badge-{{$product->code}}').text()) - 1);
+                    }
+                });
+            });
+
+        </script>
 @endsection

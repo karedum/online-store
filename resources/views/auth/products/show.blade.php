@@ -1,6 +1,6 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Заказы')
+@section('title', 'Все товары')
 @section('content')
     <div class="col-md-12">
         <h1>{{ $product->name }}</h1>
